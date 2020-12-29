@@ -18,6 +18,3 @@ for letter in userWord:
         wordWithoutVovels = wordWithoutVovels + letter
 
 print(wordWithoutVovels)
-    # Complete the body of the loop.
-
-# Print the word assigned to wordWithoutVowels.
