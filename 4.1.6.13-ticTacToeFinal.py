@@ -162,6 +162,7 @@ while numberOfMoves < 9:
     #victoryFor(board, computer)
     
 else:
+    displayBoard(board)
     print("It's a tie")
 
 print('Game closed')
