@@ -15,7 +15,8 @@
 
 # You've surely seen a seven-segment display.
 
-# It's a device (sometimes electronic, sometimes mechanical) designed to present one decimal digit using a subset of seven segments. If you still don't know what it is, refer to the following Wikipedia article.
+# It's a device (sometimes electronic, sometimes mechanical) designed to present one decimal digit using a subset of seven segments.
+#  If you still don't know what it is, refer to the following Wikipedia article.
 
 # Your task is to write a program which is able to simulate the work of a seven-display device, although you're going to use single LEDs instead of segments.
 
@@ -52,5 +53,28 @@
 # ### # # ###   #   # ### ### ### ### ### 
 #   # # # # #   #   # #   # #   #   #   # 
 # ### ### ###   #   # ### ### ### ###   # 
+
+
+digit1 = ['  #', '  #', '  #', '  #', '  #']
+digit1 = zip(*digit1)
+
+numDict = {
+    '0': ('###', '# #', '# #', '# #', '###'),
+    '1': ('  #', '  #', '  #', '  #', '  #'),
+    '2': ('###', '  #', '###', '#  ', '###'),
+    '3': ('###', '  #', '###', '  #', '###'),
+    '4': ('# #', '# #', '###', '  #', '  #'),
+    '5': ('###', '#  ', '###', '  #', '###'),
+    '6': ('###', '#  ', '###', '# #', '###'),
+    '7': ('###', '  #', '  #', '  #', '  #'),
+    '8': ('###', '# #', '###', '# #', '###'),
+    '9': ('###', '# #', '###', '  #', '###')
+    }
+
+def rotate(number):
+    for i in digit1:
+        print(i)
+
+print(rotate(input("enter number: ")))
 
 

@@ -35,10 +35,19 @@
 
 
 def readint(prompt, min, max):
-#
-# put your code here
-#
+    while True:
+        try:
+            number = int(input(prompt))
+            if number < min or number > max:
+                print('Error: the value is not within permitted range (',min, '..',max,')')
+            else:
+                return number
+        except ValueError:
+            print('Error: wrong input')
+            continue
+
+
+
 
 v = readint("Enter a number from -10 to 10: ", -10, 10)
-
 print("The number is:", v)
