@@ -55,8 +55,6 @@
 # ### ### ###   #   # ### ### ### ###   # 
 
 
-digit1 = ['  #', '  #', '  #', '  #', '  #']
-digit1 = zip(*digit1)
 
 numDict = {
     '0': ('###', '# #', '# #', '# #', '###'),
@@ -71,10 +69,10 @@ numDict = {
     '9': ('###', '# #', '###', '  #', '###')
     }
 
-def rotate(number):
-    for i in digit1:
-        print(i)
+def digit(num):
 
-print(rotate(input("enter number: ")))
+    for row in range(len(numDict['0'])):
+        print(' '.join(numDict[i][row] for i in num))
 
 
+digit(input('Please enter a number: '))
