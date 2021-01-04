@@ -1,11 +1,3 @@
-# Scenario
-
-# You are already familiar with the Caesar cipher, and this is why we want you to improve the code we showed you recently.
-
-# The original Caesar cipher shifts each character by one: a becomes b, z becomes a, and so on. Let's make it a bit harder, and allow the shifted value to come from the range 1..25 inclusive.
-
-# Moreover, let the code preserve the letters' case (lower-case letters will remain lower-case) and all non-alphabetical characters should remain untouched.
-
 # Your task is to write a program which:
 
 #     asks the user for one line of text to encrypt;
@@ -30,28 +22,25 @@
 # Sgd chd hr bzrs
 
 
-# what to do :
-
-#     Calculate the position/index of the character in the 0-25 range.
+## what to do :
+#     Make a list of characters?
+#     Calculate the position/index of the character in the 0-25 range. (ASCII?)
 #     Perform the positive shift using the modulo operation.
 #     Find the character at the new position.
-#     Replace the current capital letter by this new character.
+#     Replace the current character by this new character.
 
-
-# Caesar cipher - decrypting a message
-#cipher = input('Enter your cryptogram: ')
 import string
 
 encryption = ''
-alphabet = string.ascii_lowercase
+alphabet = string.ascii_lowercase #instead of typing a list, also not using ascii_letters because of the shifting required
 alphabetCapital = string.ascii_uppercase
 
 
 def encrypt():
     message = input("Enter the message you would like to encrypt: ")
-    print()
-
+    #empty string to hold answer
     encryption = ''
+    #Made a while loop to catch errors without stopping the program
     while True:
         try:
             key = int(input("Enter key to encrypt: "))
@@ -65,11 +54,11 @@ def encrypt():
         except ValueError:
             print('Please enter a number')
             
-    
+    # Check if character is Upper or Lower case, then shift its position. If neither, just add it as is.
     for char in message:
         if char in alphabet:
             position = alphabet.find(char)
-            newPosition = (position + key) % 26
+            newPosition = (position + key) % 26 # Modulate by 26 because amount of characters in alphabet
             newChar = alphabet[newPosition]
             encryption += newChar
         elif char in alphabetCapital:
