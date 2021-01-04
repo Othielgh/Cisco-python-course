@@ -1,19 +1,3 @@
-#  LAB
-
-# Estimated time
-
-# 30-45 minutes
-# Level of difficulty
-
-# Hard
-# Pre-requisites
-
-# Module 5.1.11.1, Module 5.1.11.2
-# Objectives
-
-#     improving the student's skills in operating with strings;
-#     converting characters into ASCII code, and vice versa.
-
 # Scenario
 
 # You are already familiar with the Caesar cipher, and this is why we want you to improve the code we showed you recently.
@@ -57,6 +41,7 @@
 # Caesar cipher - decrypting a message
 #cipher = input('Enter your cryptogram: ')
 import string
+
 encryption = ''
 alphabet = string.ascii_lowercase
 alphabetCapital = string.ascii_uppercase
@@ -65,13 +50,21 @@ alphabetCapital = string.ascii_uppercase
 def encrypt():
     message = input("Enter the message you would like to encrypt: ")
     print()
-    key = int(input("Enter key to decrypt: "))
 
     encryption = ''
-
-    if key <1 or key >25:
-        print('Please enter a valid number (1-25)')
-        return
+    while True:
+        try:
+            key = int(input("Enter key to encrypt: "))
+            if key <1 or key > 25:
+                print('Please enter a valid number (1-25)')
+                continue
+            if not key:
+                raise ValueError
+            else:
+                break
+        except ValueError:
+            print('Please enter a number')
+            
     
     for char in message:
         if char in alphabet:
@@ -84,6 +77,8 @@ def encrypt():
             newPosition = (position + key) % 26
             newChar = alphabetCapital[newPosition]
             encryption += newChar
+        elif char not in alphabet or char not in alphabetCapital:
+            encryption += char
     
     print(encryption)
         
