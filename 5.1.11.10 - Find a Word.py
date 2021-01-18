@@ -18,11 +18,20 @@ firstWord = list(input('Please enter the word you want to find: '))
 secondWord = list(input('Please enter the letters to check: '))
 
 def findWord(firstWord, secondWord):
+    newWord = ''
     print('Is', ''.join(firstWord), 'in', ''.join(secondWord), '?')
-    if 0 in [c in firstWord for c in secondWord]:
-        print('Yes')
-    else:
-        print('No')
+    for s in secondWord:
+        for item in firstWord:
+            if item in s:
+                print('found'), item
+                item += newWord
+            else:
+                print('No')
+                break
+        if newWord is firstWord:
+            print('yes')
+        else:
+            print('no')
 
 
 findWord(firstWord,secondWord)
