@@ -28,10 +28,7 @@ def findWord(firstWord, secondWord):
             else:
                 print('No')
                 break
-        if newWord is firstWord:
-            print('yes')
-        else:
-            print('no')
+
 
 
 findWord(firstWord,secondWord)
