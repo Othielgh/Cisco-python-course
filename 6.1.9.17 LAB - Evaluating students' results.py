@@ -53,20 +53,20 @@ def scoreCount():
             line = line.strip()
             try:
                 firstname, lastname, score = line.split()
-                name = firstname + lastname
+                name = firstname + ' ' + lastname
                 print(name)
             except ValueError:
-                print('errorororo1')
                 continue
             try:
-                score = float(score)
-                print(score)
+                newscore = float(score)
+                print(newscore)
             except ValueError:
                 print('scoreerror')
-            for d_ in d.values():
-               for originalscore in studentDict:
-                   score = score + originalscore
-            tempDict[name] = score
+                continue
+            for score in studentDict:
+                score = newscore + score
+            studentDict[name] = score
+    print(tempDict)
 
 
 scoreCount()
